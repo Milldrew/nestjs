@@ -1,0 +1,11 @@
+product card
+
+from for creating products ID TITLE DESCRIPTION PRICE IMAGE URL
+
+button to create a new product 
+
+the page lists all of the products
+
+pagination
+
+searching for a product fuzzy search
