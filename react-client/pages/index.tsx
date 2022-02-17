@@ -1,11 +1,14 @@
+import { useGetAllProducts } from "../hooks/getAllProducts";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { ProductCard } from "../components/ProductCard";
+import { CreateProductForm } from "../components/CreateProductForm";
 import { CreateProductButton } from "../components/CreateProductButton";
 
 const Home: NextPage = () => {
+  useGetAllProducts();
   return (
     <div className={styles.container}>
       <Head>
@@ -27,6 +30,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>Products</h1>
       </header>
       <main>
+        <CreateProductForm />
         <ProductCard
           id="1"
           title="title"

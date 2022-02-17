@@ -7,10 +7,11 @@ export function CreateProductButton() {
   }
   return (
     <>
-      <div
+      <p
         onClick={() => console.log("clicked")}
         style={{
-          position: "absolute",
+          padding: "4%",
+          position: "fixed",
           left: "85%",
           bottom: "5%",
           borderRadius: "100%",
@@ -20,10 +21,11 @@ export function CreateProductButton() {
           alignItems: "center",
           width: "10vw",
           height: "10vw",
+          textAlign: "center",
         }}
       >
-        <p style={{ textAlign: "center" }}>Create Product</p>
-      </div>
+        Create Product
+      </p>
     </>
   );
 }
