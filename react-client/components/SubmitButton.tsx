@@ -1,10 +1,11 @@
+import { createProduct } from "../hooks/useCreateProduct";
 import { useMediaQuery } from "react-responsive";
 export function SubmitButton(props) {
   const isBigScreen = useMediaQuery({ query: "(min-width: 700px)" });
   return (
     <>
       <div
-        onClick={() => console.log("clicked")}
+        onClick={createProduct}
         style={{
           fontSize: isBigScreen ? "20px" : "13px",
           height: "1%",

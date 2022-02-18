@@ -1,10 +1,17 @@
+import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 export function CreateProductButton() {
-  const [btnColor, setBtnColor] = useState("#dea");
-  function mouseUp() {
-    setTimeout(() => setBtnColor("#dea"), 100);
-    console.log("up");
-  }
+  const isBigScreen = useMediaQuery({ query: "(min-width: 700px)" });
+  const isMedScreen = useMediaQuery({ query: "(min-width: 500px)" });
+  const fontSize = (() => {
+    if (isBigScreen) {
+      return "20px";
+    } else if (isMedScreen) {
+      return "36px";
+    } else {
+      return "20px";
+    }
+  })();
   return (
     <>
       <p
@@ -12,19 +19,21 @@ export function CreateProductButton() {
         style={{
           padding: "4%",
           position: "fixed",
-          left: "85%",
+          right: "5%",
           bottom: "5%",
           borderRadius: "100%",
-          backgroundColor: btnColor,
+          backgroundColor: "#ff0000",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: "10vw",
-          height: "10vw",
+          width: isBigScreen ? "15vw" : "12vw",
+          height: isBigScreen ? "15vw" : "12vw",
           textAlign: "center",
+          fontSize: fontSize,
+          color: "white",
         }}
       >
-        Create Product
+        {isBigScreen ? "Create Product" : "+"}
       </p>
     </>
   );

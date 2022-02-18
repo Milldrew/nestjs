@@ -27,7 +27,6 @@ export function CreateProductForm() {
     <>
       <div
         style={{
-          borderRadius: "3%",
           position: "absolute",
           padding: "0% 0 0 0",
           top: "50%",
@@ -46,14 +45,13 @@ export function CreateProductForm() {
         <div
           style={{
             padding: " 0% 10%",
-            borderRadius: "4%",
             height: "80%",
             width: "80%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#ffffff88",
+            backgroundColor: "#ffffffdd",
           }}
         >
           <h2
