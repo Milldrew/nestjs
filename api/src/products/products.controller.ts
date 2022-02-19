@@ -19,17 +19,21 @@ export class ProductsController {
   }
   @Put()
   updateProduct(
+    @Body() payload: object,
     @Body('id') id: string,
     @Body('title') prodTitle: string,
     @Body('description') desc: string,
     @Body('price') price: number,
+    @Body('imageUrl') imgUrl: string,
   ): any {
     const updatedProduct = this.productsService.updateProduct(
       id,
       prodTitle,
       desc,
       price,
+      imgUrl,
     );
+    console.log({ payload });
     return updatedProduct;
   }
   @Post()
@@ -37,11 +41,13 @@ export class ProductsController {
     @Body('title') prodTitle: string,
     @Body('description') desc: string,
     @Body('price') price: number,
+    @Body('imgUrl') imgUrl: string,
   ): any {
     const productId = this.productsService.insertProduct(
       prodTitle,
       desc,
       price,
+      imgUrl,
     );
     return { productId };
   }

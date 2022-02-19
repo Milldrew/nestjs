@@ -6,9 +6,12 @@ import { Product } from './product.model';
 export class ProductsService {
   private products: Product[] = [];
 
-  insertProduct(title: string, desc: string, price: number) {
+  insertProduct(title: string, desc: string, price: number, imgUrl: string) {
+    console.log({ imgUrl });
+    console.log('hello from insert product');
     const prodId = Math.random().toString();
-    const newProduct = new Product(prodId, title, desc, price);
+    const newProduct = new Product(prodId, title, desc, price, imgUrl);
+    console.log({ newProduct });
     this.products.push(newProduct);
     console.log('this.products', this.products);
     return prodId;
@@ -26,7 +29,13 @@ export class ProductsService {
     const deletedProduct: Product = this.products.splice(prodIndex, 1)[0];
     return deletedProduct;
   }
-  updateProduct(id: string, prodTitle: string, desc: string, price: number) {
+  updateProduct(
+    id: string,
+    prodTitle: string,
+    desc: string,
+    price: number,
+    imgUrl: string,
+  ) {
     console.log('hello from update product');
     console.log({ id, prodTitle, desc, price });
     const prodIndex = this.products.findIndex((product) => product.id === id);
@@ -41,6 +50,7 @@ export class ProductsService {
       title: prodTitle,
       description: desc,
       price,
+      imgUrl,
     });
     this.products.push(targetProduct);
     return targetProduct;
