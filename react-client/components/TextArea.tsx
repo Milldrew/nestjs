@@ -5,7 +5,7 @@ export function TextArea(props) {
     <>
       <textarea
         onChange={(e) => props.onChange(e)}
-        placeHolder={props.placeHolder || "placeholder"}
+        placeholder={props.placeHolder || "placeholder"}
         style={{
           fontFamily: "inherit",
           width: "14em",

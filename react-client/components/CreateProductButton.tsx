@@ -1,6 +1,10 @@
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
-export function CreateProductButton() {
+export function CreateProductButton(props) {
+  function handleClick() {
+    console.log("hello");
+    props.setFormVisibility("visible");
+  }
   const isBigScreen = useMediaQuery({ query: "(min-width: 700px)" });
   const isMedScreen = useMediaQuery({ query: "(min-width: 500px)" });
   const fontSize = (() => {
@@ -15,7 +19,7 @@ export function CreateProductButton() {
   return (
     <>
       <p
-        onClick={() => console.log("clicked")}
+        onClick={handleClick}
         style={{
           padding: "4%",
           position: "fixed",

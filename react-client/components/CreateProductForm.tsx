@@ -4,7 +4,7 @@ import { TextArea } from "./TextArea";
 import { TextInputField } from "./TextInputField";
 import { PriceInput } from "./PriceInput";
 import { SubmitButton } from "./SubmitButton";
-export function CreateProductForm() {
+export function CreateProductForm(props) {
   const isBigScreen = useMediaQuery({ query: "(min-width: 700px)" });
   const [product, setProduct] = useState({});
   function updateProductPrice(e) {
@@ -16,7 +16,7 @@ export function CreateProductForm() {
     console.log(product);
   }
   function updateProductUrl(e) {
-    Object.assign(product, { url: e.target.value });
+    Object.assign(product, { imageUrl: e.target.value });
     console.log(product);
   }
   function updateProductTitle(e) {
@@ -27,6 +27,7 @@ export function CreateProductForm() {
     <>
       <div
         style={{
+          visibility: props.visibility,
           position: "absolute",
           padding: "0% 0 0 0",
           top: "50%",
@@ -98,7 +99,10 @@ export function CreateProductForm() {
               alignItems: "center",
             }}
           >
-            <SubmitButton />
+            <SubmitButton
+              product={product}
+              setFormVisibility={props.setVisibility}
+            />
           </div>
         </div>
       </div>

@@ -1,13 +1,15 @@
-import { useGetAllProducts } from "../hooks/getAllProducts";
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useGetAllProducts } from "../hooks/getAllProducts";
 import { ProductCard } from "../components/ProductCard";
 import { CreateProductForm } from "../components/CreateProductForm";
 import { CreateProductButton } from "../components/CreateProductButton";
 
 const Home: NextPage = () => {
+  const [formVisibility, setFormVisibility] = useState("hidden");
   useGetAllProducts();
   return (
     <div className={styles.container}>
@@ -32,7 +34,10 @@ const Home: NextPage = () => {
         </h1>
       </header>
       <main>
-        <CreateProductForm />
+        <CreateProductForm
+          visibility={formVisibility}
+          setVisibility={setFormVisibility}
+        />
         <ProductCard
           id="1"
           title="title"
@@ -43,7 +48,7 @@ const Home: NextPage = () => {
       </main>
 
       <footer>
-        <CreateProductButton />
+        <CreateProductButton setFormVisibility={setFormVisibility} />
       </footer>
     </div>
   );

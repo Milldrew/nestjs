@@ -1,18 +1,15 @@
 import { useEffect, useState } from "react";
 
-export async function createProduct() {
-  console.log("create product");
+export async function createProduct(productData) {
+  console.log({ productData });
   try {
     const payload = await fetch("http://localhost:8080/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        title: "title",
-        description: "description",
-        price: 3,
+        productData,
       }),
     });
-    console.log(payload);
     payload
       .json()
       .then((data) => console.log(data))

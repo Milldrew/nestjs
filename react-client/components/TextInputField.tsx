@@ -5,7 +5,7 @@ export function TextInputField(props) {
     <>
       <input
         onChange={(e) => props.onChange(e)}
-        placeHolder={props.placeHolder}
+        placeholder={props.placeHolder}
         style={{
           type: "text",
           height: "2em",
